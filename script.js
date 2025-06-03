@@ -17,7 +17,7 @@ function formatTime(milliseconds) {
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
 
-    return \`\${String(hours).padStart(2, '0')}:\${String(minutes).padStart(2, '0')}:\${String(seconds).padStart(2, '0')}\`;
+    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
 
 // Update display
@@ -93,12 +93,12 @@ function applyStyles() {
     timerContainer.style.opacity = opacitySlider.value;
     timerContainer.style.backgroundColor = bgColorPicker.value;
     timerDisplay.style.color = fontColorPicker.value;
-    timerDisplay.style.fontSize = \`\${fontSizeInput.value}px\`;
+    timerDisplay.style.fontSize = `${fontSizeInput.value}px`;
     timerDisplay.style.fontFamily = fontFamilySelect.value;
 
     // Size
-    timerContainer.style.width = \`\${timerWidthInput.value}px\`;
-    timerContainer.style.height = \`\${timerHeightInput.value}px\`;
+    timerContainer.style.width = `${timerWidthInput.value}px`;
+    timerContainer.style.height = `${timerHeightInput.value}px`;
     // To ensure text fits, we might need to adjust display properties or make it more robust
     // For now, let's make sure the display itself is flexible.
     timerDisplay.style.display = 'flex';
@@ -150,8 +150,8 @@ function applyStyles() {
     } else {
         // This 'else' block implies that if no preset is matched (e.g. a "custom" mode or default)
         // then customXInput and customYInput values are used directly.
-        timerContainer.style.left = \`\${customX}%\`;
-        timerContainer.style.top = \`\${customY}%\`;
+        timerContainer.style.left = `${customX}%`;
+        timerContainer.style.top = `${customY}%`;
         // The transform 'translate(-50%, -50%)' is already set by default,
         // so X% and Y% will position the center of the timerContainer at that percentage of the viewport.
     }
