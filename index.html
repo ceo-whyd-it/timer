@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div id="timerContainer">
+        <div id="timerDisplay">00:00:00</div>
+    </div>
+
+    <div id="controlsContainer">
+        <div id="timerControls">
+            <button id="startButton">Start</button>
+            <button id="stopButton">Stop</button>
+            <button id="resetButton">Reset</button>
+        </div>
+
+        <div id="appearanceControls">
+            <h3>Appearance</h3>
+            <div>
+                <label for="opacitySlider">Opacity:</label>
+                <input type="range" id="opacitySlider" min="0.1" max="1" step="0.1" value="1">
+            </div>
+            <div>
+                <label for="bgColorPicker">Background Color:</label>
+                <input type="color" id="bgColorPicker" value="#f0f0f0">
+            </div>
+            <div>
+                <label for="fontColorPicker">Font Color:</label>
+                <input type="color" id="fontColorPicker" value="#333333">
+            </div>
+            <div>
+                <label for="fontSizeInput">Font Size (px):</label>
+                <input type="number" id="fontSizeInput" value="48" min="10">
+            </div>
+            <div>
+                <label for="fontFamilySelect">Font Family:</label>
+                <select id="fontFamilySelect">
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="'Courier New', Courier, monospace">Courier New</option>
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="'Times New Roman', Times, serif">Times New Roman</option>
+                    <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Lucida Sans</option>
+                    <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+                    <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
+                    <option value="Verdana, Geneva, sans-serif">Verdana</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="sizeControls">
+            <h3>Size</h3>
+            <div>
+                <label for="timerWidthInput">Width (px):</label>
+                <input type="number" id="timerWidthInput" value="300" min="100">
+            </div>
+            <div>
+                <label for="timerHeightInput">Height (px):</label>
+                <input type="number" id="timerHeightInput" value="150" min="50">
+            </div>
+        </div>
+
+        <div id="positionControls">
+            <h3>Position</h3>
+            <p>Note: For simplicity, position is relative to the flow. Advanced positioning (fixed/absolute) will be handled by dragging or specific corner placement if implemented later.</p>
+            <div>
+                <label for="positionSelect">Preset Position:</label>
+                <select id="positionSelect">
+                    <option value="topLeft">Top Left</option>
+                    <option value="topRight">Top Right</option>
+                    <option value="bottomLeft">Bottom Left</option>
+                    <option value="bottomRight">Bottom Right</option>
+                    <option value="center">Center</option>
+                </select>
+            </div>
+             <div>
+                <label for="customXInput">Custom X (%):</label>
+                <input type="number" id="customXInput" value="50" min="0" max="100">
+            </div>
+            <div>
+                <label for="customYInput">Custom Y (%):</label>
+                <input type="number" id="customYInput" value="50" min="0" max="100">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

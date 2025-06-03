@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#timerContainer {
+    /* Initial appearance, will be overridden by JS */
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    /* Sizing - initial, will be overridden by JS */
+    width: 300px;
+    height: 150px;
+
+    /* Positioning - critical for JS control */
+    position: fixed; /* Allows JS to set top/left/right/bottom */
+    /* Default position set by JS (e.g. center) */
+    /* transform: translate(-50%, -50%); /* If JS sets left:50%, top:50% */
+
+    /* Ensure children (timerDisplay) can be centered */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Prevents content spill during resizing */
+    z-index: 1000; /* Keep timer on top */
+}
+
+#timerDisplay {
+    /* Initial font settings, will be overridden by JS */
+    font-size: 48px;
+    color: #333333;
+    font-family: Arial, sans-serif; /* Default, JS will override */
+    font-weight: bold;
+    white-space: nowrap; /* Prevents time from wrapping */
+}
+
+#controlsContainer {
+    margin-top: 20px; /* Space below the area where timer might be initially */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* If timer is fixed, controls should not overlap or be hidden by it.
+       This margin-top assumes timer is not initially covering controls.
+       If timer is draggable anywhere, this layout is fine. */
+    position: relative; /* So it's not under the fixed timer */
+    z-index: 1; /* Below timer */
+}
+
+#timerControls button {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+#timerControls button:hover {
+    background-color: #0056b3;
+}
+
+#timerControls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#appearanceControls > div,
+#sizeControls > div,
+#positionControls > div {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#appearanceControls label,
+#sizeControls label,
+#positionControls label {
+    min-width: 120px; /* Align labels */
+    font-weight: bold;
+}
+
+#appearanceControls input[type="range"],
+#appearanceControls input[type="color"],
+#appearanceControls input[type="number"],
+#appearanceControls select,
+#sizeControls input[type="number"],
+#positionControls select,
+#positionControls input[type="number"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    flex-grow: 1; /* Allow inputs to take available space */
+}
+
+#positionControls p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    color: #007bff;
+}
+
+/* Make sure body takes at least viewport height if content is short,
+   so controls are not awkwardly high if timer is moved down. */
+body {
+    min-height: calc(100vh - 40px); /* 40px for body padding */
+}
